@@ -1,14 +1,14 @@
 const colors = [
-  { color: "Red", rarity: "Common", image: "" },
-  { color: "Blue", rarity: "Uncommon", image: "" },
-  { color: "Green", rarity: "Epic", image: "" },
-  { color: "Yellow", rarity: "Common", image: "" },
-  { color: "Purple", rarity: "Legendary", image: "" },
-  { color: "Orange", rarity: "Uncommon", image: "" },
-  { color: "Pink", rarity: "Epic", image: "" },
-  { color: "Cyan", rarity: "Common", image: "" },
-  { color: "Black", rarity: "Legendary", image: "" },
-  { color: "White", rarity: "Uncommon", image: "" },
+  { name: "Red", rarity: "Common", image: "a" },
+  { name: "Blue", rarity: "Uncommon", image: "a" },
+  { name: "Green", rarity: "Epic", image: "a" },
+  { name: "Yellow", rarity: "Common", image: "a" },
+  { name: "Purple", rarity: "Legendary", image: "a" },
+  { name: "Orange", rarity: "Uncommon", image: "a" },
+  { name: "Pink", rarity: "Epic", image: "a" },
+  { name: "Cyan", rarity: "Common", image: "a" },
+  { name: "Black", rarity: "Legendary", image: "a" },
+  { name: "White", rarity: "Uncommon", image: "a" },
 ];
 
 export { colors };
