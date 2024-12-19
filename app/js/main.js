@@ -4,6 +4,9 @@ import { colors } from "./colors";
 
 console.log(colors);
 
+let money = 500;
+gamble(money);
+
 function colorCards() {
   colors.forEach((color) => {
     DOMSelectors.box.insertAdjacentHTML(
@@ -18,5 +21,24 @@ function colorCards() {
     );
   });
 }
-
 colorCards();
+
+function clearText() {
+  DOMSelectors.money.innerHTML = "";
+}
+
+function gamble(money) {
+  DOMSelectors.money_button.addEventListener("click", () => {
+    if (money >= 10) {
+      money -= 10;
+      console.log(money);
+      clearText();
+      DOMSelectors.money.insertAdjacentHTML(
+        "afterbegin",
+        `<p class="text-xl">Money: $${money}</p>`
+      );
+    } else {
+      console.log("you broke as hell");
+    }
+  });
+}
