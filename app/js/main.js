@@ -26,12 +26,16 @@ function colorCards() {
 }
 colorCards();
 
-function clearText() {
+function clearMoney() {
   DOMSelectors.money.innerHTML = "";
 }
 
+function clearUpdateText() {
+  DOMSelectors.update_text.innerHTML = "";
+}
+
 function updateMoneyDisplay() {
-  clearText();
+  clearMoney();
   DOMSelectors.money.insertAdjacentHTML(
     "afterbegin",
     `<p class="text-xl">Money: $${money}</p>`
@@ -55,17 +59,19 @@ function gachaPull() {
 function sellDuplicate(color) {
   const rarityValues = {
     Common: 10,
-    Uncommon: 25,
-    Epic: 50,
-    Legendary: 100,
-    Mythic: 500,
+    Uncommon: 15,
+    Epic: 25,
+    Legendary: 50,
+    Mythic: 250,
     Godly: 1000,
   };
 
   const sellValue = rarityValues[color.rarity];
   money += sellValue;
 
-  console.log(
+  clearUpdateText();
+  DOMSelectors.update_text.insertAdjacentHTML(
+    "beforeend",
     `Duplicate color sold: ${color.name} (${color.rarity}). Earned $${sellValue}.`
   );
 
@@ -91,6 +97,12 @@ function gachaHistory() {
               <p class="text-xl text-accent">${pulledColor.rarity}</p>
         </div>
       `
+    );
+
+    clearUpdateText();
+    DOMSelectors.update_text.insertAdjacentHTML(
+      "beforeend",
+      `New Color Unlocked! You pulled ${pulledColor.name}!`
     );
   }
 }
