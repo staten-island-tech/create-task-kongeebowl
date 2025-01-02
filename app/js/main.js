@@ -6,6 +6,7 @@ console.log(colors);
 
 const history = [];
 let money = 500;
+let clicks = 0;
 
 updateMoneyDisplay();
 gambleButton();
@@ -34,11 +35,23 @@ function clearUpdateText() {
   DOMSelectors.update_text.innerHTML = "";
 }
 
+function clearClickText() {
+  DOMSelectors.clicks.innerHTML = "";
+}
+
 function updateMoneyDisplay() {
   clearMoney();
   DOMSelectors.money.insertAdjacentHTML(
     "afterbegin",
     `<p class="text-xl">Money: $${money}</p>`
+  );
+}
+
+function clickCounter() {
+  clearClickText();
+  DOMSelectors.clicks.insertAdjacentHTML(
+    "afterbegin",
+    `<p class="text-xl">Clicks: ${clicks}</p>`
   );
 }
 
@@ -109,11 +122,13 @@ function gachaHistory() {
 
 function gambleButton() {
   DOMSelectors.money_button.addEventListener("click", () => {
-    if (money >= 10) {
-      money -= 10;
-      console.log(`Gambled $10. Balance: $${money}`);
+    if (money >= 15) {
+      money -= 15;
+      clicks += 1;
+      console.log(`Gambled $15. Balance: $${money}`);
       updateMoneyDisplay();
       gachaHistory();
+      clickCounter();
     } else {
       console.log("you broke as hell");
     }
