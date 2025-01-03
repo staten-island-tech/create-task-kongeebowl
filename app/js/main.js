@@ -94,9 +94,7 @@ function sellDuplicate(color) {
 function gachaHistory() {
   const pulledColor = gachaPull();
 
-  const isDuplicate = history.some((color) => color.name === pulledColor.name);
-
-  if (isDuplicate) {
+  if (history.some((color) => color.name === pulledColor.name)) {
     sellDuplicate(pulledColor);
   } else {
     history.push(pulledColor);
