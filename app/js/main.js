@@ -70,22 +70,12 @@ function gachaPull() {
 }
 
 function sellDuplicate(color) {
-  const rarityValues = {
-    Common: 10,
-    Uncommon: 15,
-    Epic: 25,
-    Legendary: 50,
-    Mythic: 250,
-    Godly: 1000,
-  };
-
-  const sellValue = rarityValues[color.rarity];
-  money += sellValue;
+  money += color.sellValue;
 
   clearUpdateText();
   DOMSelectors.update_text.insertAdjacentHTML(
     "beforeend",
-    `Duplicate color sold: ${color.name} (${color.rarity}). Earned $${sellValue}.`
+    `Duplicate color sold: ${color.name} (${color.rarity}). Earned $${color.sellValue}.`
   );
 
   updateMoneyDisplay();
