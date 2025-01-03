@@ -118,7 +118,7 @@ function gambleButton() {
       gachaHistory();
       clickCounter();
     } else {
-      console.log("you broke as hell");
+      alert("you broke as hell");
     }
   });
 }
