@@ -7,6 +7,7 @@ console.log(colors);
 const history = [];
 let money = 500;
 let clicks = 0;
+const pity = 1.58746;
 
 updateMoneyDisplay();
 gambleButton();
@@ -83,8 +84,15 @@ function sellDuplicate(color) {
 
 function gachaHistory() {
   const pulledColor = gachaPull();
+  let found = false;
 
-  if (history.some((color) => color.name === pulledColor.name)) {
+  history.forEach((color) => {
+    if (color.name === pulledColor.name) {
+      found = true;
+    }
+  });
+
+  if (found === true) {
     sellDuplicate(pulledColor);
   } else {
     history.push(pulledColor);
@@ -113,12 +121,13 @@ function gambleButton() {
     if (money >= 15) {
       money -= 15;
       clicks += 1;
+
       console.log(`Gambled $15. Balance: $${money}`);
       updateMoneyDisplay();
       gachaHistory();
       clickCounter();
     } else {
-      alert("you broke as hell");
+      alert("you broke as hell. restart 🤣🤣😂🤣😂");
     }
   });
 }
