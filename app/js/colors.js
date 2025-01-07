@@ -26,7 +26,7 @@ const colors = [
   },
   {
     name: "White",
-    rarity: "Uncommon",
+    rarity: "Rare",
     image: "https://www.colorcombos.com/images/colors/FFFFFF.png",
     weight: 35,
     id: 4,

@@ -7,7 +7,23 @@ console.log(colors);
 const history = [];
 let money = 500;
 let clicks = 0;
-const pity = 1.58746;
+
+const pity = 0.1;
+
+const lowerPityColor = colors.filter(
+  (color) =>
+    color.rarity === "Common" ||
+    color.rarity === "Uncommon" ||
+    color.rarity === "Rare"
+);
+
+const increasePityColor = colors.filter(
+  (color) =>
+    color.rarity === "Epic" ||
+    color.rarity === "Legendary" ||
+    color.rarity === "Mythic" ||
+    color.rarity === "Godly"
+);
 
 updateMoneyDisplay();
 gambleButton();
@@ -121,6 +137,19 @@ function gambleButton() {
     if (money >= 15) {
       money -= 15;
       clicks += 1;
+
+      if (clicks >= 50) {
+        lowerPityColor.forEach((color) => {
+          color.weight -= pity;
+          if (color.weight <= 0) {
+            color.weight = 0;
+          }
+        });
+
+        increasePityColor.forEach((color) => {
+          color.weight += pity;
+        });
+      }
 
       console.log(`Gambled $15. Balance: $${money}`);
       updateMoneyDisplay();
